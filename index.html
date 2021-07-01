@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>aykutsahinler-odev-2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <button onclick="fetchData()">Getir</button>
-        <!--Todo-->
-        <button onclick="filterData('isActive')" id="filterButton" style="display: none;">Filtrele</button>
-        
-        <div class="input-container" >
-            <input id="age" type="checkbox">
-            <label for="age">Age</label>
+      <div class="button-container">
+        <button id="fetchButton" class="btn fetch-btn">
+          Get
+        </button>
+        <button onclick="filterData()" id="filterButton" class="btn filter-btn">
+          Filter
+        </button>
+      </div>
+
+      <div id="inputsContainer" class="inputs-container">
+        <div class="checkbox-container">
+            <div class="input-container">
+                <input class="checkbox" id="age" type="checkbox" />
+                <label for="age">Age</label>
+              </div>
+              
+              <div class="input-container">
+                  <input class="checkbox" id="isActive" type="checkbox" />
+                  <label for="isActive">Is Active</label>
+              </div>
         </div>
 
         <div class="input-container">
-            <input id="isActive" type="checkbox">
-            <label for="isActive">Is Active</label>
+          <label for="name">Name: </label>
+          <input id="name" class="name" type="text" maxlength="1" autocomplete="off"/>
         </div>
+      </div>
 
-        <div class="input-container">
-            <label for="name">Name: </label>
-            <input id="name" type="text" maxlength="1">
-        </div>
-
-        <ul class="list">
-            
-        </ul>
+      <ul class="list" id="list"></ul>
     </div>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
