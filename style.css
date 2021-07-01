@@ -67,9 +67,8 @@ body {
 
 .btn:hover {
     color: white;
-    background-color: #C5CD7A;
-    border: 2px solid white;
-    padding: calc(.6rem - 2px);
+    background-color: black;
+    color: white;
 }
 
 .filter-btn {
