@@ -16,8 +16,7 @@ body {
     animation : Gradient 15s ease infinite; 
 }
 
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: transparent
 }
@@ -27,8 +26,7 @@ body {
 	background-color: transparent;
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
 	background-color: #000000;
 }
 

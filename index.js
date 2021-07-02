@@ -1,4 +1,5 @@
-let data = [];
+let initialData = [];
+let filteredData = [];
 
 // Query Selectors
 
@@ -25,7 +26,7 @@ function fetchData() {
     })
     .then((responseData) => {
       //json'dan okunan verinin data array'ine atanması
-      data = responseData;
+      initialData = responseData;
 
       //veri geldikten sonra filtreleme butonu görünür olsun
       showElements()
@@ -48,37 +49,37 @@ function showElements() {
 
 function filterByAge() {
   if (ageCheckBox.checked) {
-    let filterAge = data.filter((person) => person.age > 18);
-    listData(filterAge);
+    filteredData = filteredData.filter((person) => person.age > 18);
+    listData(filteredData);
   }
 }
 
 function filterByIsActive() {
   if (isActiveCheckbox.checked) {
-    let filterIsActive = data.filter((element) => element.isActive === true);
-    listData(filterIsActive);
+    filteredData = filteredData.filter((element) => element.isActive === true);
+    listData(filteredData);
   }
 }
 
 function filterByName() {
   if (nameInput.value.length != "") {
-    let filterName = data.filter(
+    filteredData = filteredData.filter(
       (name) => name.name[0] === nameInput.value.toUpperCase()
     );
-    listData(filterName);
+    listData(filteredData);
   }
 }
 
-function filterData() {
-  filterByAge();
-  filterByIsActive();
-  filterByName();
+async function filterData() {
+    filteredData = initialData;
+    await filterByAge();
+    await filterByIsActive();
+    await filterByName();
 }
 
 // Manipulating DOM
 
 const listData = (data) => {
-   
     list.innerHTML = data.map((element) => {
         return `
         <li id=${element.id}>
@@ -87,5 +88,5 @@ const listData = (data) => {
             <strong><span>Age: </span></strong> <span>${element.age}</span> <br>
         </li> <br><hr> 
         `;
-  });
+  }).join('');
 };
